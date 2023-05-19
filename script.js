@@ -20,8 +20,8 @@ window.onload = function () {
     conteudo = fundo.getContext("2d")
 
     comida()
-    for (let i = 0; i < 4; i++) {
-        cobra.push([cobraX - tamanho * i, cobraY])
+    for (let i = 0; i < 3; i++) {
+        cobra.push([cobraX - tamanho * i, cobraY]);
     }
     document.addEventListener("keyup", direcao)
     setInterval(atualiza, 1000 / 10)
