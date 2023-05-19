@@ -13,15 +13,15 @@ var macaY
 var fim = false
 var pontos = -1
 
-function reiniciarJogo(){
-    fim = false;
-    pontos = -1;
-    cobraX = tamanho;
-    cobraY = tamanho;
-    velocidadeX = 0;
-    velocidadeY = 0;
-    cobra = [];
-    comida();
+function reiniciarJogo() {
+    fim = false
+    pontos = -1
+    cobraX = tamanho
+    cobraY = tamanho
+    velocidadeX = 0
+    velocidadeY = 0
+    cobra = []
+    comida()
 }
 
 
