@@ -12,6 +12,8 @@ var macaX
 var macaY
 var fim = false
 var pontos = -1
+var maca=new Image()
+maca.src="maca.png"
 
 function reiniciarJogo() {
     fim = false
@@ -49,7 +51,7 @@ function atualiza() {
     conteudo.fillRect(0, 0, fundo.width, fundo.height)
 
     conteudo.fillStyle = "red"
-    conteudo.fillRect(macaX, macaY, tamanho, tamanho)
+    conteudo.drawImage(maca, macaX, macaY, tamanho, tamanho)
 
     if (cobraX === macaX && cobraY === macaY) {
         cobra.push([macaX, macaY])
@@ -101,9 +103,11 @@ function direcao(evento) {
 
 }
 function comida() {
+    maca.onload=function (){
     macaX = Math.floor(Math.random() * colunas) * tamanho
     macaY = Math.floor(Math.random() * linhas) * tamanho
     ++pontos
-    console.log(`${pontos}`)
+    console.log(`${pontos}`)}
+    maca.src="maca.png"
 }
 
