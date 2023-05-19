@@ -23,14 +23,13 @@ window.onload = function () {
     setInterval(atualiza, 1000 / 10)
 }
 
-for(i=cobra.length-1; i>0; i++){
-    cobra[i]=cobra[i-1]
-}
+
 
 
 function atualiza() {
     if (fim) {
         return
+    }
         conteudo.fillStyle = "black"
         conteudo.fillRect(0, 0, tela.width, tela.height)
 
@@ -42,7 +41,20 @@ function atualiza() {
             comida()
         }
 
+        for (i = cobra.length - 1; i > 0; i++) {
+            cobra[i] = cobra[i - 1]
+        }
+        if (cobra.length) {
+            cobra[4] = [cobraX, cobraY]
     }
+
+conteudo.fillStyle="blue"
+cobraX+=velocidadeX*tamanho
+cobraY+=velocidadeY*tamanho
+conteudo.fillRect(cobraX, cobraY, tamanho, tamanho)
+for(i = 0; i< cobra.length; i++){
+    conteudo.fillRect(cobra[i][0], cobra[i][1], tamanho, tamanho)
+}
 }
 
 function mudaLocal(x) {
