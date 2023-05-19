@@ -23,6 +23,9 @@ window.onload = function () {
     setInterval(atualiza, 1000 / 10)
 }
 
+for(i=cobra.length-1; i>0; i++){
+    cobra[i]=cobra[cobraX,cobraY]
+}
 
 
 function atualiza() {
