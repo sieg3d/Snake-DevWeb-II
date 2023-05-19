@@ -24,7 +24,7 @@ window.onload = function () {
 }
 
 for(i=cobra.length-1; i>0; i++){
-    cobra[i]=cobra[cobraX,cobraY]
+    cobra[i]=cobra[i-1]
 }
 
 
