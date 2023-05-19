@@ -51,3 +51,9 @@ function comida(){
     macaX = Math.floor(Math.random()*colunas)*tamanho
     macaY = Math.floor(Math.random()*colunas)*tamanho
 }
+
+conteudo.fillStyle="black"
+conteudo.fillRect(0, 0, tela.width, tela.height)
+
+conteudo.fillStyle="red"
+conteudo.fillRect(macaX, macaY, tamanho, tamanho)
