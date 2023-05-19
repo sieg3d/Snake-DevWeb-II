@@ -10,13 +10,13 @@ var velocidadeY = 0
 var cobra = [4]
 var macaX
 var macaY
-var fim = true
+var fim = false
 
 window.onload = function () {
-    tela = document.getElementById("tela")
-    tela.width = colunas * tamanho
-    tela.height = linhas * tamanho
-    conteudo = tela.getContext("2d")
+    fundo = document.getElementById("tela")
+    fundo.width = colunas * tamanho
+    fundo.height = linhas * tamanho
+    conteudo = fundo.getContext("2d")
 
     comida()
     document.addEventListener("keyup", mudaLocal)
@@ -41,7 +41,7 @@ function atualiza() {
             comida()
         }
 
-        for (i = cobra.length - 1; i > 0; i++) {
+        for (i = cobra.length - 1; i > 0; i--) {
             cobra[i] = cobra[i - 1]
         }
         if (cobra.length) {
