@@ -13,6 +13,18 @@ var macaY
 var fim = false
 var pontos = -1
 
+function reiniciarJogo(){
+    fim = false;
+    pontos = -1;
+    cobraX = tamanho;
+    cobraY = tamanho;
+    velocidadeX = 0;
+    velocidadeY = 0;
+    cobra = [];
+    comida();
+}
+
+
 window.onload = function () {
     fundo = document.getElementById("tela")
     fundo.width = colunas * tamanho
@@ -20,9 +32,7 @@ window.onload = function () {
     conteudo = fundo.getContext("2d")
 
     comida()
-    for (let i = 0; i < 3; i++) {
-        cobra.push([cobraX - tamanho * i, cobraY]);
-    }
+
     document.addEventListener("keyup", direcao)
     setInterval(atualiza, 1000 / 10)
 }
