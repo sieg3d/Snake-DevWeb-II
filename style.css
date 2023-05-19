@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#cima,
+#baixo,
+#esq,
+#dir {
+    width: 124.3px;
+    height: 100px;
+    font-size: 50px;
+    border-radius: 10px;
+}
+
+#reiniciar {
+    width: 510px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+body {
+    background-color: lime;
+    margin-left: 30%;
+    margin-top: 2%;
+    background-image: url(img/floresta.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+
+canvas{
+    border: solid 5px brown;
+    background-image: url(img/bkg.jpg);
+}

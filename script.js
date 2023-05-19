@@ -72,13 +72,13 @@ function atualiza() {
     }
     if (cobraX < 0 || cobraX >= colunas * tamanho || cobraY < 0 || cobraY >= linhas * tamanho) {
         fim = true
-        alert(`Perdeu, mané!\nFez ${pontos} pontos. Parabens seus cocô`)
+        alert(`Perdeu, mané!\nFez ${pontos} pontos. Parabens!`)
     }
 
     for (i = 0; i < cobra.length; i++) {
         if (cobraX === cobra[i][0] && cobraY === cobra[i][1]) {
             fim = true
-            alert(`Perdeu, mané!\nFez ${pontos} pontos. Parabens seus cocô`)
+            alert(`Perdeu, mané!\nFez ${pontos} pontos. Parabens!`)
         }
     }
 

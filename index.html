@@ -4,16 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet"/>
     <title>Desnvolvimento Web II - Snake!</title>
+    
 </head>
 
 <body>
     <canvas id="tela"></canvas>
     <br>
+    <div class="direcao">
     <button id="cima" onclick="cima()">^</button>
     <button id="baixo" onclick="baixo()">v</button>
     <button id="esq" onclick="esq()"><</button>
     <button id="dir" onclick="dir()">></button>
+    </div>
     <br>
     <button id="reiniciar" onclick="reiniciarJogo()">REINICIAR O JOGO</button>
     <script src="script.js"></script>
