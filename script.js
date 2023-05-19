@@ -19,7 +19,7 @@ window.onload = function () {
     conteudo = fundo.getContext("2d")
 
     comida()
-    document.addEventListener("keyup", mudaLocal)
+    document.addEventListener("keyup", direcao)
     setInterval(atualiza, 1000 / 10)
 }
 
@@ -38,7 +38,7 @@ function atualiza() {
     conteudo.fillRect(macaX, macaY, tamanho, tamanho)
 
     if (cobraX == macaX && cobraY == macaY) {
-        cobra.push = ([macaX, macaY])
+        cobra.push([macaX, macaY])
         comida()
     }
 
@@ -70,7 +70,7 @@ function atualiza() {
 
 }
 
-function mudaLocal(x) {
+function direcao(x) {
     if (x.code == "ArrowUp" && velocidadeY != 1) {
         velocidadeX = 0
         velocidadeY = -1
