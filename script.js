@@ -3,8 +3,8 @@ var linhas = 20
 var colunas = 20
 var fundo
 var conteudo
-var cobraX = tamanho
-var cobraY = tamanho
+var cobraX = Math.floor(colunas/2) * tamanho
+var cobraY = Math.floor(colunas/2) * tamanho
 var velocidadeX = 0
 var velocidadeY = 0
 var cobra = []
@@ -12,14 +12,14 @@ var macaX
 var macaY
 var fim = false
 var pontos = -1
-var maca=new Image()
-maca.src="maca.png"
+var maca = new Image()
+maca.src = "maca.png"
 
 function reiniciarJogo() {
     fim = false
     pontos = -1
-    cobraX = tamanho
-    cobraY = tamanho
+    cobraX = Math.floor(colunas/2) * tamanho
+    cobraY = Math.floor(colunas/2) * tamanho
     velocidadeX = 0
     velocidadeY = 0
     cobra = []
@@ -103,17 +103,44 @@ function direcao(evento) {
 
 }
 function comida() {
-    maca.onload=function (){
-    macaX = Math.floor(Math.random() * colunas) * tamanho
-    macaY = Math.floor(Math.random() * linhas) * tamanho
-    ++pontos
-    console.log(`${pontos}`)}
-    maca.src="maca.png"
+    maca.onload = function () {
+        macaX = Math.floor(Math.random() * colunas) * tamanho
+        macaY = Math.floor(Math.random() * linhas) * tamanho
+        ++pontos
+        console.log(`${pontos}`)
+    }
+    maca.src = "maca.png"
 }
 
-function esq(){
-    if(velocidadeY!==1){
-        velocidadeX=0
-        velocidadeY=-1
+function cima() {
+    if (velocidadeY !== 1) {
+        velocidadeX = 0
+        velocidadeY = -1
     }
 }
+
+function baixo() {
+    if (velocidadeY !== -1) {
+        velocidadeX = 0
+        velocidadeY = 1
+    }
+}
+
+function esquerda() {
+    if (velocidadeX !== 1) {
+        velocidadeX = -1
+        velocidadeY = 0
+    }
+}
+
+function direita() {
+    if (velocidadeX !== -1) {
+        velocidadeX = 1
+        velocidadeY = 0
+    }
+}
+
+// o jogo ja começa finalizado. Entender o motivo
+// cobra.push([cobraX,cobraY])
+// cobra.push([cobraX - tamanho, cobraY])
+// cobra.push([cobraX-2 * tamanho, cobraY])
