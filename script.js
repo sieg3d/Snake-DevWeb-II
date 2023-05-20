@@ -111,9 +111,30 @@ function comida() {
     maca.src="maca.png"
 }
 
-function esq(){
+function cima(){
     if(velocidadeY!==1){
         velocidadeX=0
         velocidadeY=-1
+    }
+}
+
+function baixo(){
+    if(velocidadeY!==-1){
+        velocidadeX=0
+        velocidadeY=1
+    }
+}
+
+function esquerda(){
+    if(velocidadeX!==1){
+        velocidadeX=-1
+        velocidadeY=0
+    }
+}
+
+function direita(){
+    if(velocidadeX!==-1){
+        velocidadeX=1
+        velocidadeY=0
     }
 }
