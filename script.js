@@ -111,3 +111,9 @@ function comida() {
     maca.src="maca.png"
 }
 
+function esq(){
+    if(velocidadeY!==1){
+        velocidadeX=0
+        velocidadeY=-1
+    }
+}
