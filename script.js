@@ -3,7 +3,7 @@ var linhas = 20
 var colunas = 20
 var fundo
 var conteudo
-var cobraX = Math.floor(colunas / 2) * tamanho
+var cobraX = Math.floor(linhas / 2) * tamanho
 var cobraY = Math.floor(colunas / 2) * tamanho
 var velocidadeX = 0
 var velocidadeY = 0
@@ -71,7 +71,7 @@ function atualiza() {
 
     
     conteudo.drawImage(maca, macaX, macaY, tamanho, tamanho)
-    conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho);
+    // conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho); ta duplicando a cabeça
 
     if (cobraX === macaX && cobraY === macaY) {
         cobra.push([macaX, macaY])
