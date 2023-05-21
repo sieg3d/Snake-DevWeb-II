@@ -17,8 +17,11 @@ maca.src = "maca.png"
 var imagemFundo = new Image()
 imagemFundo.src = "folhas-verdes.jpg"
 var serpente = new Image()
-serpente.src = "serpente.png"
-
+serpente.src = "serpenteB.png"
+//---------------------------------------------
+var corpo = new Image()
+corpo.src="corpo.png"
+//---------------------------------------------
 
 
 function reiniciarJogo() {
@@ -82,7 +85,11 @@ function atualiza() {
         cobra[0] = [cobraX, cobraY]
     }
 
-    conteudo.fillStyle = "blue"
+    for (let i = 0; i < cobra.length; i++) {
+        conteudo.drawImage(corpo, cobra[i][0], cobra[i][1], tamanho, tamanho);
+      }
+
+    // conteudo.fillStyle = "blue"
     cobraX += velocidadeX * tamanho
     cobraY += velocidadeY * tamanho
     // conteudo.fillRect(cobraX, cobraY, tamanho, tamanho) teste serpente
@@ -105,22 +112,32 @@ function atualiza() {
 
 }
 
+
+
 function direcao(evento) {
     if (evento.code === "ArrowUp" && velocidadeY != 1) {
-        velocidadeX = 0
-        velocidadeY = -1
+      velocidadeX = 0;
+      velocidadeY = -1;
+      serpente.src = "serpenteC.png";
     } else if (evento.code === "ArrowDown" && velocidadeY != -1) {
-        velocidadeX = 0
-        velocidadeY = 1
+      velocidadeX = 0;
+      velocidadeY = 1;
+      serpente.src = "serpenteB.png";
     } else if (evento.code === "ArrowLeft" && velocidadeX != 1) {
-        velocidadeX = -1
-        velocidadeY = 0
+      velocidadeX = -1;
+      velocidadeY = 0;
+      serpente.src = "serpenteE.png";
     } else if (evento.code === "ArrowRight" && velocidadeX != -1) {
-        velocidadeX = 1
-        velocidadeY = 0
+      velocidadeX = 1;
+      velocidadeY = 0;
+      serpente.src = "serpenteD.png";
     }
+  }
+  
 
-}
+
+
+
 function comida() {
     maca.onload = function () {
         macaX = Math.floor(Math.random() * colunas) * tamanho
