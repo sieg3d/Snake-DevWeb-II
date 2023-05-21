@@ -20,7 +20,7 @@ var serpente = new Image()
 serpente.src = "serpenteB.png"
 //---------------------------------------------
 var corpo = new Image()
-corpo.src="corpo.png"
+corpo.src = "corpoY.png"
 //---------------------------------------------
 
 
@@ -50,7 +50,7 @@ window.onload = function () {
     });
     comida()
 
-    document.addEventListener("keyup", direcao)
+    
     setInterval(atualiza, 1000 / 10)
 }
 
@@ -69,7 +69,7 @@ function atualiza() {
     // aqui
     conteudo.drawImage(imagemFundo, 0, 0, fundo.width, fundo.height);
 
-    conteudo.fillStyle = "red"
+    
     conteudo.drawImage(maca, macaX, macaY, tamanho, tamanho)
     conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho);
 
@@ -87,7 +87,7 @@ function atualiza() {
 
     for (let i = 0; i < cobra.length; i++) {
         conteudo.drawImage(corpo, cobra[i][0], cobra[i][1], tamanho, tamanho);
-      }
+    }
 
     // conteudo.fillStyle = "blue"
     cobraX += velocidadeX * tamanho
@@ -95,9 +95,9 @@ function atualiza() {
     // conteudo.fillRect(cobraX, cobraY, tamanho, tamanho) teste serpente
     conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho);
 
-    for (let i = 0; i < cobra.length; i++) {
-        conteudo.fillRect(cobra[i][0], cobra[i][1], tamanho, tamanho)
-    }
+    // for (let i = 0; i < cobra.length; i++) {
+    //     conteudo.fillRect(cobra[i][0], cobra[i][1], tamanho, tamanho)
+    // } testando
     if (cobraX < 0 || cobraX >= colunas * tamanho || cobraY < 0 || cobraY >= linhas * tamanho) {
         fim = true
         alert(`Perdeu, mané!\nFez ${pontos} pontos. Parabens!`)
@@ -106,7 +106,7 @@ function atualiza() {
     for (i = 0; i < cobra.length; i++) {
         if (cobraX === cobra[i][0] && cobraY === cobra[i][1]) {
             fim = true
-            alert(`Perdeu, mané!\nFez ${pontos} pontos. Parabens!`)
+            alert(`Perdeu, mané!\nFez ${pontos} pontos.\nAcertou o próprio corpo`)
         }
     }
 
@@ -116,24 +116,28 @@ function atualiza() {
 
 function direcao(evento) {
     if (evento.code === "ArrowUp" && velocidadeY != 1) {
-      velocidadeX = 0;
-      velocidadeY = -1;
-      serpente.src = "serpenteC.png";
+        velocidadeX = 0;
+        velocidadeY = -1;
+        serpente.src = "serpenteC.png"
+        corpo.src = "corpoY.png"
     } else if (evento.code === "ArrowDown" && velocidadeY != -1) {
-      velocidadeX = 0;
-      velocidadeY = 1;
-      serpente.src = "serpenteB.png";
+        velocidadeX = 0;
+        velocidadeY = 1;
+        serpente.src = "serpenteB.png"
+        corpo.src = "corpoY.png"
     } else if (evento.code === "ArrowLeft" && velocidadeX != 1) {
-      velocidadeX = -1;
-      velocidadeY = 0;
-      serpente.src = "serpenteE.png";
+        velocidadeX = -1;
+        velocidadeY = 0;
+        serpente.src = "serpenteE.png"
+        corpo.src = "corpoX.png"
     } else if (evento.code === "ArrowRight" && velocidadeX != -1) {
-      velocidadeX = 1;
-      velocidadeY = 0;
-      serpente.src = "serpenteD.png";
+        velocidadeX = 1;
+        velocidadeY = 0;
+        serpente.src = "serpenteD.png"
+        corpo.src = "corpoX.png"
     }
-  }
-  
+}
+
 
 
 
@@ -181,3 +185,4 @@ function direita() {
 // cobra.push([cobraX - tamanho, cobraY])
 // cobra.push([cobraX-2 * tamanho, cobraY])
 
+//os botoes virtuais nao estao virando a imagem da serpente.. corrigir
