@@ -3,8 +3,8 @@ var linhas = 20
 var colunas = 20
 var fundo
 var conteudo
-var cobraX = Math.floor(colunas/2) * tamanho
-var cobraY = Math.floor(colunas/2) * tamanho
+var cobraX = Math.floor(colunas / 2) * tamanho
+var cobraY = Math.floor(colunas / 2) * tamanho
 var velocidadeX = 0
 var velocidadeY = 0
 var cobra = []
@@ -15,13 +15,17 @@ var pontos = -1
 var maca = new Image()
 maca.src = "maca.png"
 var imagemFundo = new Image()
-    imagemFundo.src = "folhas-verdes.jpg"
+imagemFundo.src = "folhas-verdes.jpg"
+var serpente = new Image()
+serpente.src = "serpente.png"
+
+
 
 function reiniciarJogo() {
     fim = false
     pontos = -1
-    cobraX = Math.floor(colunas/2) * tamanho
-    cobraY = Math.floor(colunas/2) * tamanho
+    cobraX = Math.floor(colunas / 2) * tamanho
+    cobraY = Math.floor(colunas / 2) * tamanho
     velocidadeX = 0
     velocidadeY = 0
     cobra = []
@@ -37,9 +41,9 @@ window.onload = function () {
 
     document.addEventListener("keyup", direcao);
     document.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowDown" || event.key === "ArrowUp"||event.key === "ArrowLeft"||event.key === "ArrowRight") {
-        event.preventDefault();
-      }
+        if (event.key === "ArrowDown" || event.key === "ArrowUp" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
+            event.preventDefault();
+        }
     });
     comida()
 
@@ -57,11 +61,14 @@ function atualiza() {
 
     // conteudo.fillStyle = "black"
     // conteudo.fillRect(0, 0, fundo.width, fundo.height)
-    
+
+    conteudo.clearRect(0, 0, fundo.width, fundo.height);
+    // aqui
     conteudo.drawImage(imagemFundo, 0, 0, fundo.width, fundo.height);
 
     conteudo.fillStyle = "red"
     conteudo.drawImage(maca, macaX, macaY, tamanho, tamanho)
+    conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho);
 
     if (cobraX === macaX && cobraY === macaY) {
         cobra.push([macaX, macaY])
@@ -78,7 +85,9 @@ function atualiza() {
     conteudo.fillStyle = "blue"
     cobraX += velocidadeX * tamanho
     cobraY += velocidadeY * tamanho
-    conteudo.fillRect(cobraX, cobraY, tamanho, tamanho)
+    // conteudo.fillRect(cobraX, cobraY, tamanho, tamanho) teste serpente
+    conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho);
+
     for (let i = 0; i < cobra.length; i++) {
         conteudo.fillRect(cobra[i][0], cobra[i][1], tamanho, tamanho)
     }
