@@ -14,6 +14,8 @@ var fim = false
 var pontos = -1
 var maca = new Image()
 maca.src = "maca.png"
+var imagemFundo = new Image()
+    imagemFundo.src = "folhas-verdes.jpg"
 
 function reiniciarJogo() {
     fim = false
@@ -33,6 +35,12 @@ window.onload = function () {
     fundo.height = linhas * tamanho
     conteudo = fundo.getContext("2d")
 
+    document.addEventListener("keyup", direcao);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp"||event.key === "ArrowLeft"||event.key === "ArrowRight") {
+        event.preventDefault();
+      }
+    });
     comida()
 
     document.addEventListener("keyup", direcao)
@@ -47,8 +55,10 @@ function atualiza() {
         return
     }
 
-    conteudo.fillStyle = "black"
-    conteudo.fillRect(0, 0, fundo.width, fundo.height)
+    // conteudo.fillStyle = "black"
+    // conteudo.fillRect(0, 0, fundo.width, fundo.height)
+    
+    conteudo.drawImage(imagemFundo, 0, 0, fundo.width, fundo.height);
 
     conteudo.fillStyle = "red"
     conteudo.drawImage(maca, macaX, macaY, tamanho, tamanho)
@@ -144,3 +154,4 @@ function direita() {
 // cobra.push([cobraX,cobraY])
 // cobra.push([cobraX - tamanho, cobraY])
 // cobra.push([cobraX-2 * tamanho, cobraY])
+
