@@ -23,6 +23,7 @@ var corpo = new Image()
 corpo.src = "corpoY.png"
 //---------------------------------------------
 var velocidade = 5
+var intervalo
 
 function reiniciarJogo() {
     fim = false
@@ -51,7 +52,7 @@ window.onload = function () {
     comida()
 
 
-    setInterval(atualiza, 2000 / velocidade)
+    setInterval(atualiza, 1000 / 10)
 }
 
 
@@ -139,6 +140,12 @@ function comida() {
         macaY = Math.floor(Math.random() * linhas) * tamanho
         ++pontos
         console.log(`${pontos}`)
+
+        if(pontos%5===0 && pontos > 0){
+            velocidade++
+            clearInterval(intervalo)
+            intervalo = setInterval(atualiza, 2000/ velocidade)
+        }
     }
     maca.src = "maca.png"
 }
