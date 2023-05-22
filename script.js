@@ -22,7 +22,7 @@ serpente.src = "serpenteB.png"
 var corpo = new Image()
 corpo.src = "corpoY.png"
 //---------------------------------------------
-
+var velocidade = 5
 
 function reiniciarJogo() {
     fim = false
@@ -50,8 +50,8 @@ window.onload = function () {
     });
     comida()
 
-    
-    setInterval(atualiza, 1000 / 10)
+
+    setInterval(atualiza, 2000 / velocidade)
 }
 
 
@@ -62,16 +62,12 @@ function atualiza() {
         return
     }
 
-    // conteudo.fillStyle = "black"
-    // conteudo.fillRect(0, 0, fundo.width, fundo.height)
 
     conteudo.clearRect(0, 0, fundo.width, fundo.height);
-    // aqui
     conteudo.drawImage(imagemFundo, 0, 0, fundo.width, fundo.height);
 
-    
+
     conteudo.drawImage(maca, macaX, macaY, tamanho, tamanho)
-    // conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho); ta duplicando a cabeça
 
     if (cobraX === macaX && cobraY === macaY) {
         cobra.push([macaX, macaY])
@@ -89,15 +85,10 @@ function atualiza() {
         conteudo.drawImage(corpo, cobra[i][0], cobra[i][1], tamanho, tamanho);
     }
 
-    // conteudo.fillStyle = "blue"
     cobraX += velocidadeX * tamanho
     cobraY += velocidadeY * tamanho
-    // conteudo.fillRect(cobraX, cobraY, tamanho, tamanho) teste serpente
     conteudo.drawImage(serpente, cobraX, cobraY, tamanho, tamanho);
 
-    // for (let i = 0; i < cobra.length; i++) {
-    //     conteudo.fillRect(cobra[i][0], cobra[i][1], tamanho, tamanho)
-    // } testando
     if (cobraX < 0 || cobraX >= colunas * tamanho || cobraY < 0 || cobraY >= linhas * tamanho) {
         fim = true
         alert(`Perdeu, mané!\nFez ${pontos} pontos. Parabens!`)
@@ -156,6 +147,8 @@ function cima() {
     if (velocidadeY !== 1) {
         velocidadeX = 0
         velocidadeY = -1
+        serpente.src = "serpenteC.png"
+        corpo.src = "corpoY.png"
     }
 }
 
@@ -163,6 +156,8 @@ function baixo() {
     if (velocidadeY !== -1) {
         velocidadeX = 0
         velocidadeY = 1
+        serpente.src = "serpenteB.png"
+        corpo.src = "corpoY.png"
     }
 }
 
@@ -170,6 +165,8 @@ function esquerda() {
     if (velocidadeX !== 1) {
         velocidadeX = -1
         velocidadeY = 0
+        serpente.src = "serpenteE.png"
+        corpo.src = "corpoX.png"
     }
 }
 
@@ -177,8 +174,12 @@ function direita() {
     if (velocidadeX !== -1) {
         velocidadeX = 1
         velocidadeY = 0
+        serpente.src = "serpenteD.png"
+        corpo.src = "corpoX.png"
     }
 }
+
+
 
 // o jogo ja começa finalizado. Entender o motivo
 // cobra.push([cobraX,cobraY])
